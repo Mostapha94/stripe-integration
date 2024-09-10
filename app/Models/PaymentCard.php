@@ -11,7 +11,8 @@ class PaymentCard extends Model
     protected $fillable = [
         'user_id',
         'card_number',
-        'expiration_date',
+        'expiry_month',
+        'expiry_year',
         'card_holder_name',
     ];
 

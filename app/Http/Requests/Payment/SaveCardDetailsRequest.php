@@ -19,9 +19,13 @@ class SaveCardDetailsRequest extends FormRequest
                 'digits:16',
                 'unique:user_payment_cards,card_number'
             ],
-            'expiry_date' => [
+            'expiry_month' => [
                 'required',
-                'date_format:m/y',
+                'date_format:m',
+            ],
+            'expiry_year' => [
+                'required',
+                'date_format:y',
             ],
             'card_holder_name' => [
                 'required',

@@ -17,7 +17,8 @@ class PaymentCardRepository implements PaymentCardRepositoryInterface
         PaymentCard::create([
             'user_id' => auth()->id(),
             'card_number' => $data['card_number'],
-            'expiration_date' => $data['expiry_date'],
+            'expiry_month' => $data['expiry_month'],
+            'expiry_year' => $data['expiry_year'],
             'card_holder_name' => $data['card_holder_name'],
         ]);
     }

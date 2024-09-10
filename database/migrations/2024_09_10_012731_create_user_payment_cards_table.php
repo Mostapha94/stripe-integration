@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('card_number');
             $table->string('card_holder_name');
-            $table->string('expiration_date');
+            $table->string('expiry_month');
+            $table->string('expiry_year');
             $table->timestamps();
         });
     }
