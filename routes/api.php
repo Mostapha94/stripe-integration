@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Payment\CardController;
+use App\Http\Controllers\Payment\StripeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +27,5 @@ Route::group(['prefix' => 'auth'], function () {
 //authenticated routes for payment
 Route::group(['prefix' => 'payment', 'middleware' => 'jwt.verify'], function () {
     Route::post('save-card', [CardController::class, 'saveCardDetails']);
+    Route::post('stripe/charge', [StripeController::class, 'charge']);
 });
