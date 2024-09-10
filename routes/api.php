@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Payment\CardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//routes for authentication
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('register', [AuthController::class, 'register']);
+});
+
+
+
+//authenticated routes for payment
+Route::group(['prefix' => 'payment', 'middleware' => 'jwt.verify'], function () {
+    Route::post('save-card', [CardController::class, 'saveCardDetails']);
 });
